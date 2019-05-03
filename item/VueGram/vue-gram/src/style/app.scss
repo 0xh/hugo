@@ -1,0 +1,94 @@
+html,
+body,
+#app{
+    height: 100%;
+    margin: 0;
+    // overflow: hidden;
+    background: #e6ecf1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#app{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .app-phone{
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        .phone-head{
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+            z-index: 101;
+            img{
+                max-width: 110px;
+                display: block;
+                margin: 0 auto;
+                padding-top: 1px;
+            }
+            .cancel-cta,
+            .next-cta {
+                position: absolute;
+                top: 12px;
+                color: #209cee;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .cancel-cta {
+                left: 10px;
+              }
+            .next-cta {
+                right: 10px;
+            }
+        }
+        .selected-image{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            height: 330px;
+        }
+        .filter-container{
+            height: 220px;
+            padding: 30px 10px;
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+        .feed{
+            height: 110%;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            margin-right: -15px;
+        }
+        .phone-footer{
+            position: sticky;
+            position: -webkit-sticky;
+            width: 100%;
+            height: 35px;
+            bottom: 0;
+            background: #fafafa;
+            border-top: 1px #eee;
+            .home-btn{
+                position: absolute;
+                left: 10px;
+                top: 6px;
+            }
+            .upload-btn{
+                position: absolute;
+                right: 10px;
+                top: 6px;
+                input[name="file"]{
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}
+
+

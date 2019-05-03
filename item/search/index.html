@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>淘宝联想词</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text">
+        </div>
+        <button class="btn">搜索</button>
+        <ul></ul>
+    </div>
+    <script>
+        var oInput = document.getElementsByTagName('input')[0];
+        var oUl = document.getElementsByTagName('ul')[0];
+        oUl.style.display = 'none';
+        oInput.oninput = function () {
+            var val = oInput.value;
+            var oScript = document.createElement('script');
+            oScript.src = 'https://suggest.taobao.com/sug?q=' + val + '&callback=cbs';
+            document.body.appendChild(oScript);
+            oScript.remove();
+        }
+        function cbs(data) {
+            console.log(data);
+            var str = '';
+            if (data.result.length > 0) {
+                oUl.style.display = 'block';
+                data.result.forEach(function(ele, index){
+                    str += '<li>' + ele[0] + '</li>';
+                });
+                oUl.innerHTML = str;
+            }else{
+                oUl.style.display = 'none';
+            }    
+        }
+    </script>
+</body>
+</html>
